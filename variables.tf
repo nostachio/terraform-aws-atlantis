@@ -74,6 +74,12 @@ variable "alb_logging_enabled" {
   default     = false
 }
 
+variable "alb_is_internal" {
+  description = "Boolean determining if the load balancer is internal or externally facing."
+  type        = "string"
+  default     = false
+}
+
 # ACM
 variable "certificate_arn" {
   description = "ARN of certificate issued by AWS ACM. If empty, a new ACM certificate will be created and validated using Route53 DNS"

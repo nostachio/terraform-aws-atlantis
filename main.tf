@@ -160,9 +160,10 @@ module "alb" {
 
   load_balancer_name = "${var.name}"
 
-  vpc_id          = "${local.vpc_id}"
-  subnets         = ["${local.public_subnet_ids}"]
-  security_groups = ["${module.alb_https_sg.this_security_group_id}", "${module.alb_http_sg.this_security_group_id}"]
+  vpc_id                    = "${local.vpc_id}"
+  subnets                   = ["${local.public_subnet_ids}"]
+  security_groups           = ["${module.alb_https_sg.this_security_group_id}", "${module.alb_http_sg.this_security_group_id}"]
+  load_balancer_is_internal = "${var.alb_is_internal}"
 
   logging_enabled     = "${var.alb_logging_enabled}"
   log_bucket_name     = "${var.alb_log_bucket_name}"

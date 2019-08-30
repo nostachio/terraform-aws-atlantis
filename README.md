@@ -114,6 +114,7 @@ If all provided subnets are public (no NAT gateway) then `ecs_service_assign_pub
 |------|-------------|:----:|:-----:|:-----:|
 | acm\_certificate\_domain\_name | Route53 domain name to use for ACM certificate. Route53 zone for this domain should be created in advance. Specify if it is different from value in `route53_zone_name` | string | `""` | no |
 | alb\_ingress\_cidr\_blocks | List of IPv4 CIDR ranges to use on all ingress rules of the ALB. | list | `[ "0.0.0.0/0" ]` | no |
+| alb\_is\_internal | Boolean determining if the load balancer is internal or externally facing. | string | `"false"` | no |
 | alb\_log\_bucket\_name | S3 bucket (externally created) for storing load balancer access logs. Required if alb_logging_enabled is true. | string | `""` | no |
 | alb\_log\_location\_prefix | S3 prefix within the log_bucket_name under which logs are stored. | string | `""` | no |
 | alb\_logging\_enabled | Controls if the ALB will log requests to S3. | string | `"false"` | no |
@@ -168,6 +169,7 @@ If all provided subnets are public (no NAT gateway) then `ecs_service_assign_pub
 | atlantis\_allowed\_repo\_names | Github repositories where webhook should be created |
 | atlantis\_url | URL of Atlantis |
 | atlantis\_url\_events | Webhook events URL of Atlantis |
+| ecs\_task\_definition | Task definition for ECS service (used for external triggers) |
 | task\_role\_arn | The Atlantis ECS task role arn |
 | vpc\_id | ID of the VPC that was created or passed in |
 | webhook\_secret | Webhook secret |
@@ -183,4 +185,3 @@ Module is created and maintained by [Anton Babenko](https://github.com/antonbabe
 ## License
 
 Apache 2 Licensed. See LICENSE for full details.
-
