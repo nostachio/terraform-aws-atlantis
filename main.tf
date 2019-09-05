@@ -164,7 +164,6 @@ module "alb" {
   subnets                   = ["${local.public_subnet_ids}"]
   security_groups           = ["${module.alb_https_sg.this_security_group_id}", "${module.alb_http_sg.this_security_group_id}"]
   load_balancer_is_internal = "${var.alb_is_internal}"
-  create_alb                = false
 
   logging_enabled     = "${var.alb_logging_enabled}"
   log_bucket_name     = "${var.alb_log_bucket_name}"
